@@ -1,0 +1,1 @@
+REMEMBER TO ADD NODE_ENV=production when deployed

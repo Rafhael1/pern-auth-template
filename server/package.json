@@ -4,6 +4,12 @@
   "main": "server.js",
   "author": "Rafhael Marques",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon server.js",
+    "client": "yarn --cwd ../client run start",
+    "dev": "concurrently -k \"yarn run server\" \"yarn run client\" "
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "concurrently": "^6.0.0",
