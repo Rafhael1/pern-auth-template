@@ -2,9 +2,11 @@ import React from 'react'
 
 import {Link} from "react-router-dom";
 
+import './Home.scss'
+
 export default function Home({isAuthenticated}) {
     return (
-        <div>
+        <div className="Home">
             {
                 isAuthenticated === true ? <h1>You are already logged in</h1> : null
             }

@@ -1,0 +1,19 @@
+.Home {
+    text-align: center;
+    button {
+        margin: 15px;
+        padding: 13px;
+        font-size: 17px;
+        border-radius: 5px;
+        border: 0;
+        background-image: linear-gradient(to right, #9D50BB 0%, #6E48AA  51%, #9D50BB  100%);
+        transition: 0.5s;
+        background-size: 200% auto;
+        font-family: 'Quicksand', sans-serif !important;
+    
+    }
+    button:hover {
+        background-position: right center; /* change the direction of the change here */
+        text-decoration: none;
+    }
+}

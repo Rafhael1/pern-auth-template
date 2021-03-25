@@ -1,6 +1,10 @@
 import React, {useState} from 'react'
 
-export default function Login() {
+import '../Form.scss'
+
+import { toast } from 'react-toastify';
+
+export default function Login({setAuth}) {
 
   const [input,
     setInput] = useState({ email: "", password: ""})
@@ -35,10 +39,15 @@ export default function Login() {
 
       const parseRes = await res.json()
 
-      if (parseRes.token) {
-        localStorage.setItem("token", parseRes.token)
+    
+      if (parseRes.jwtToken) {
+        localStorage.setItem("token", parseRes.jwtToken);
+        setAuth(true);
+        toast.success("Logged in Successfully");
       } else {
-          console.log(parseRes)
+        setAuth(false);
+        toast.error(parseRes);
+        console.log(parseRes)
       }
 
     } catch (error) {
@@ -57,6 +66,7 @@ export default function Login() {
           name="password"
           value={password}
           onChange={e => onChange(e)}/>
+
         <button onClick={onFormSubmit}>Submit</button>
       </form>
     </div>

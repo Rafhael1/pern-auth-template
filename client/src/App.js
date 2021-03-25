@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
+import './App.scss'
+
 import Login from './components/Authentication/Login/Login'
 import Register from './components/Authentication/Register/Register'
 import Home from './components/Home/Home'
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+  
 
 function App() {
 
@@ -40,8 +46,9 @@ function App() {
     <div className="App">
       <Router>
         <div>
+        <ToastContainer />
           <Switch>
-            <Route exact path="/login" component={Login}></Route>
+            <Route exact path="/login" render={props => <Login setAuth={setAuth} />}></Route>
             <Route exact path="/register" component={Register}></Route>
             <Route exact path="/" render={props => <Home isAuthenticated={isAuthenticated} />}></Route>
           </Switch>
