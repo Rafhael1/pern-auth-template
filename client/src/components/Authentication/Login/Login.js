@@ -4,7 +4,7 @@ import '../Form.scss'
 
 import { toast } from 'react-toastify';
 
-export default function Login({setAuth}) {
+export default function Login({setAuth, isAuthenticated}) {
 
   const [input,
     setInput] = useState({ email: "", password: ""})
@@ -57,6 +57,9 @@ export default function Login({setAuth}) {
 
   return (
     <div>
+      {
+                isAuthenticated === true ? <h1>You are already logged in</h1> : null
+      }
       <form onSubmit={onFormSubmit}>
         <label>Email</label>
         <input type="email" name="email" value={email} onChange={e => onChange(e)}/>
